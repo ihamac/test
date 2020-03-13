@@ -1,0 +1,10 @@
+C:\Sio2\CorrectionControle\CorrectionControle\bin\Debug\CorrectionControle.exe.config
+C:\Sio2\CorrectionControle\CorrectionControle\bin\Debug\CorrectionControle.exe
+C:\Sio2\CorrectionControle\CorrectionControle\bin\Debug\CorrectionControle.pdb
+C:\Sio2\CorrectionControle\CorrectionControle\bin\Debug\MySql.Data.dll
+C:\Sio2\CorrectionControle\CorrectionControle\bin\Debug\MySql.Data.xml
+C:\Sio2\CorrectionControle\CorrectionControle\obj\Debug\CorrectionControle.csprojAssemblyReference.cache
+C:\Sio2\CorrectionControle\CorrectionControle\obj\Debug\CorrectionControle.csproj.CoreCompileInputs.cache
+C:\Sio2\CorrectionControle\CorrectionControle\obj\Debug\CorrectionControle.csproj.CopyComplete
+C:\Sio2\CorrectionControle\CorrectionControle\obj\Debug\CorrectionControle.exe
+C:\Sio2\CorrectionControle\CorrectionControle\obj\Debug\CorrectionControle.pdb

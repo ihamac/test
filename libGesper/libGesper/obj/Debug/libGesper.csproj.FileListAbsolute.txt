@@ -1,0 +1,9 @@
+C:\Users\ihamac\source\repos\libGesper\libGesper\obj\Debug\libGesper.csprojAssemblyReference.cache
+C:\Users\ihamac\source\repos\libGesper\libGesper\obj\Debug\libGesper.csproj.CoreCompileInputs.cache
+C:\Users\ihamac\source\repos\libGesper\libGesper\bin\Debug\libGesper.dll
+C:\Users\ihamac\source\repos\libGesper\libGesper\bin\Debug\libGesper.pdb
+C:\Users\ihamac\source\repos\libGesper\libGesper\bin\Debug\MySql.Data.dll
+C:\Users\ihamac\source\repos\libGesper\libGesper\bin\Debug\MySql.Data.xml
+C:\Users\ihamac\source\repos\libGesper\libGesper\obj\Debug\libGesper.csproj.CopyComplete
+C:\Users\ihamac\source\repos\libGesper\libGesper\obj\Debug\libGesper.dll
+C:\Users\ihamac\source\repos\libGesper\libGesper\obj\Debug\libGesper.pdb

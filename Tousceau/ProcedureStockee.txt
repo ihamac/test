@@ -1,0 +1,53 @@
+delimiter |
+drop procedure if exists abonnements |
+
+CREATE PROCEDURE abonnements()
+BEGIN
+DECLARE done INT DEFAULT 0;
+DECLARE num INTEGER;
+DECLARE nom char(20);
+
+DECLARE abo CURSOR FOR
+select distinct s.num,s.nom from souscrit s inner join abonne a on s.num = a.num;
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+OPEN abo;                                                                                      
+WHILE done = 0 do
+FETCH abo INTO num,nom;
+select num,nom;
+END while;
+CLOSE abo;
+END |
+call abonnements() |
+delimiter ;
+
+------------------------------------------------------------------------
+
+delimiter |
+drop procedure if exists majTotal |
+
+CREATE PROCEDURE majTotal()
+BEGIN
+DECLARE done INT DEFAULT 0;
+DECLARE vnum INTEGER;
+DECLARE cumul decimal(10,0);
+
+DECLARE souscrit CURSOR FOR
+select num from souscrit;
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+OPEN souscrit;
+WHILE done = 0 do
+FETCH souscrit INTO vnum;
+	select sum(montant) INTO cumul from verse where YEAR(datev) = 2018 and num=vnum;
+	if cumul is NULL then 
+	set cumul = 0; 
+	end if;
+	update souscrit set total = cumul 
+	where num = vnum;
+END while;
+close souscrit;nu
+END |
+call majTotal() |
+delimiter ;
+	

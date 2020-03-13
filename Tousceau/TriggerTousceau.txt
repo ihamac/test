@@ -1,0 +1,70 @@
+----------
+
+delimiter |
+drop trigger if exists insert_souscrit |
+CREATE TRIGGER insert_souscrit 
+	BEFORE INSERT
+	ON verse FOR EACH ROW
+BEGIN
+	declare vcumul decimal(10,0);
+	
+	select sum(montant) into vcumul from verse where num = new.num;
+	set vcumul = vcumul + new.montant;
+
+	IF vcumul > 5000
+	THEN
+		INSERT INTO Erreur(libErreur) VALUES ('Erreur : Le montant est superieur à 5000 euros...');
+	ELSE
+		UPDATE souscrit set total = total + new.montant
+		WHERE num = new.num;
+	END IF;
+END |
+delimiter ;
+
+INSERT verse values( 1,'2018/12/06',4100 );
+
+---------
+delimiter |
+drop trigger if exists insert_souscrit |
+CREATE TRIGGER insert_souscrit 
+	BEFORE UPDATE
+	ON verse FOR EACH ROW
+BEGIN
+	declare vcumul decimal(10,0);
+	
+	select sum(montant) into vcumul from verse where num = new.num;
+	set vcumul = (vcumul - old.montant) + new.montant;
+
+	IF vcumul > 5000
+	THEN
+		INSERT INTO Erreur(libErreur) VALUES ('Erreur : Le montant est superieur à 5000 euros...');
+	ELSE
+		UPDATE souscrit set total = vcumul
+		WHERE num = new.num;
+	END IF;
+END |
+delimiter ;
+
+INSERT verse values( 1,'2018/12/10',4100 );
+---------
+delimiter |
+delete
+
+CREATE TABLE Erreur(id TINYINT unsigned AUTO_INCREMENT PRIMARY KEY, libErreur VARCHAR(255) UNIQUE);
+INSERT INTO Erreur(libErreur) VALUES ('Erreur : Le montant est superieur à 5000 euros...');
+
+
+
+
+
+
+
+
+
+
+
+
+REQUETE : 
+Quels sont les numéros des souscripteurs abonnés à toutes les revues éditées par la Fondation ?
+
+ 
